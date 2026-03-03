@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIG-29 | Air Superiority</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body { margin: 0; }
+
+        /* HERO PARALLAX SECTION */
+        .parallax-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden; /* no inner scroll */
+            perspective: 10px;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .layer-1 { transform: translateZ(-20px) scale(3); z-index: -3; }
+        .layer-2 { transform: translateZ(-10px) scale(2); z-index: -2; }
+        .layer-3 { transform: translateZ(-5px) scale(1.5); z-index: -1; }
+        .layer-4 { transform: translateZ(0px); position: relative; z-index: 10; }
+
+        /* Scroll animation support */
+        @supports (animation-timeline: view()) {
+            .parallax-card-slow,
+            .parallax-card-normal,
+            .parallax-card-fast {
+                animation: parallax-up linear;
+                animation-timeline: view();
+                animation-range: entry 0% exit 100%;
+            }
+
+            .parallax-card-slow { --parallax-speed: -40px; }
+            .parallax-card-normal { --parallax-speed: 0px; }
+            .parallax-card-fast { --parallax-speed: 40px; }
+
+            @keyframes parallax-up {
+                from { transform: translateY(var(--parallax-speed)); }
+                to { transform: translateY(calc(var(--parallax-speed) * -1)); }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-gray-100">
+
+<!-- ================= HERO SECTION ================= -->
+<section class="parallax-container">
+
+    <!-- SKY BACKGROUND -->
+    <div class="parallax-layer layer-1">
+        <img src="img/img-1.jfif" 
+             class="w-full h-full object-cover opacity-40" alt="Sky">
+    </div>
+
+    <!-- GRADIENT -->
+    <div class="parallax-layer layer-2">
+        <div class="w-full h-full bg-gradient-to-b from-transparent via-red-900/20 to-transparent"></div>
+    </div>
+
+    <!-- JET IMAGE -->
+    <div class="parallax-layer layer-3">
+        <img src="img/MiG-29 Mikoyan Gurevich _Fulcrum_.jfif" 
+             class="w-2/3 md:w-1/2 drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)]"
+             alt="MiG-29">
+    </div>
+
+    <!-- HERO CONTENT -->
+    <div class="parallax-layer layer-4 flex flex-col text-center px-6">
+
+        <h2 class="font-black uppercase italic tracking-tight
+                   text-4xl md:text-7xl lg:text-8xl leading-none mb-6 drop-shadow-2xl">
+            Dominating the 
+            <br class="hidden md:block">
+            Dogfight
+            <span class="text-red-600 block md:inline mt-2 md:mt-0">
+                Since 1977
+            </span>
+        </h2>
+
+        <div class="flex justify-center">
+            <p class="text-slate-200 text-lg md:text-2xl leading-relaxed max-w-3xl 
+                      bg-black/30 backdrop-blur-md p-6 rounded-xl">
+                Developed by Mikoyan Design Bureau, the MiG-29 first flew in 1977 
+                and entered service in 1983. Known for extreme agility and twin 
+                RD-33 engines, it remains active in over 25 nations worldwide.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= FEATURE SECTION ================= -->
+<section class="py-20 bg-slate-950">
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-6 items-stretch">
+
+        <!-- CARD 1 -->
+        <div class="parallax-card-slow 
+                    bg-slate-900/40 p-8 rounded-2xl 
+                    border border-white/5 shadow-2xl
+                    h-full flex flex-col">
+
+            <h3 class="text-red-600 font-black uppercase text-xl border-b border-red-900 pb-2">
+                Twin RD-33 Engines
+            </h3>
+
+            <p class="text-slate-300 text-sm leading-relaxed flex-grow mt-4">
+                Two Klimov RD-33 turbofans provide a 1:1 thrust-to-weight ratio, enabling vertical climbs and Mach 2.25 speeds. Unique dorsal louvers allow the jet to breathe while the main intakes stay shut to protect against debris on rough runways.
+            </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="parallax-card-normal 
+                    bg-slate-900/60 p-8 rounded-2xl 
+                    border border-red-600/20 shadow-2xl
+                    h-full flex flex-col">
+
+            <h3 class="text-red-600 font-black uppercase text-xl border-b border-red-900 pb-2">
+                Weaponry & Payload
+            </h3>
+
+            <p class="text-slate-300 text-sm leading-relaxed flex-grow mt-4">
+                The MiG-29 features six hardpoints for a 4,000 kg payload, including R-73 'Archer' and R-27 missiles. Its 30mm GSh-30-1 cannon and helmet-mounted aiming system make it a lethal dogfighter, now upgraded for laser-guided ground strikes.
+            </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="parallax-card-fast 
+                    bg-slate-900/40 p-8 rounded-2xl 
+                    border border-white/5 shadow-2xl
+                    h-full flex flex-col">
+
+            <h3 class="text-red-600 font-black uppercase text-xl border-b border-red-900 pb-2">
+                Global Service
+            </h3>
+
+            <p class="text-slate-300 text-sm leading-relaxed flex-grow mt-4">
+                In service since 1983, the "Fulcrum" is legendary for its super-maneuverability. Proven in conflicts from the Gulf War to Ukraine, it remains the backbone of 25+ nations, including India, Poland, and Bangladesh.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-black py-10 border-t border-white/10">
+
+    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
+
+        <!-- LOGO -->
+        <img src="img/WhatsApp Image 2026-03-03 at 1.45.25 PM.jpeg" 
+             alt="STIPEN Logo"
+             class="w-16 md:w-20 object-contain 
+                    transition duration-500 
+                    hover:scale-105 
+                    hover:drop-shadow-[0_0_20px_rgba(168,85,247,0.8)]">
+
+        <!-- TEXT -->
+        <p class="text-gray-400 text-sm text-center">
+            © 2026 Stitch Mark Web — All Rights Reserved
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
